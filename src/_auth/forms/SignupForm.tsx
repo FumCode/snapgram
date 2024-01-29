@@ -17,13 +17,13 @@ import { useUserContext } from "@/context/AuthContext"
 
 const SignupForm = () => {
   const { toast } = useToast()
-  const { checkAuthUser, isLoading: isUserLoading } = useUserContext();  
+  const { checkAuthUser } = useUserContext();  
   const navigate = useNavigate();
 
 const { mutateAsync: createUserAccount, isPending:
   isCreatingAccount } = useCreateUserAccount();
 
-const { mutateAsync: signInAccount, isPending: isSigningIn } = useSignInAccount();
+const { mutateAsync: signInAccount } = useSignInAccount();
 
 // 1. Define your form.
 const form = useForm<z.infer<typeof SignupValidation>>({
@@ -145,10 +145,10 @@ async function onSubmit(values: z.infer<typeof SignupValidation>) {
 
 export default SignupForm
 
-function useCreateAccountMutation(): { mutateAsync: any; isLoading: any } {
-  throw new Error("Function not implemented.")
-}
-function checkAuthUser() {
-  throw new Error("Function not implemented.")
-}
+// function useCreateAccountMutation(): { mutateAsync: any; isLoading: any } {
+//   throw new Error("Function not implemented.")
+// }
+// function checkAuthUser() {
+//   throw new Error("Function not implemented.")
+// }
 
