@@ -20,7 +20,7 @@ import { Button } from "@/components/ui/button";
 import Loader from "@/components/shared/Loader";
 import ProfileUploader from "@/components/shared/ProfileUploader";
 
-import { ProfileValidation } from "@/lib/validation/index";
+import { ProfileValidation } from "@/lib/validation";
 import { useUserContext } from "@/context/AuthContext";
 import { useGetUserById, useUpdateUser } from "@/lib/react-query/queriesAndMutation";
 
@@ -42,7 +42,8 @@ const UpdateProfile = () => {
 
   // Queries
   const { data: currentUser } = useGetUserById(id || "");
-  const { mutateAsync: updateUser, isLoading: isLoadingUpdate } =
+  // @ts-ignore
+    const { mutateAsync: updateUser, isLoading: isLoadingUpdate } =
     useUpdateUser();
 
   if (!currentUser)

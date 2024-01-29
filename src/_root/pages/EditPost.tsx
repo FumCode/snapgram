@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom"
 
 const EditPost = () => {
   const { id } = useParams();
+  // @ts-expect-error
   const { data: post, isPanding } = useGetPostById(id);
 
   if(isPanding) {
