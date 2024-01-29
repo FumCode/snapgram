@@ -109,10 +109,5 @@ async function onSubmit(values: z.infer<typeof SigninValidation>) {
 
 export default SigninForm
 
-function useCreateAccountMutation(): { mutateAsync: any; isLoading: any } {
-  throw new Error("Function not implemented.")
-}
-function checkAuthUser() {
-  throw new Error("Function not implemented.")
-}
+
 
